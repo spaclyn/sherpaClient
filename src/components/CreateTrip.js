@@ -1,19 +1,21 @@
-import { Container, Row, Col, Form, Button } from 'reactstrap'
+import { Container, Row, Col, Form, Button, Label } from 'reactstrap'
+
+import {useState} from 'react'
 
 const CreateTrip = () => {
 
     const accessToken = localStorage.getItem('sessionToken')
-    let country = document.getElementById('country').value
-    let state = document.getElementById('state').value
-    let city = document.getElementById('city').value
-    let date = document.getElementById('date').value
+    const [country, setCountry] = useState("Which country?")
+    const [state, setState] = useState("In what state?")
+    const [city, setCity] = useState("Any particular city?")
+    const [date, setDate] = useState("Date or timeframe")
 
     let newTrip = {
         tripInfo: {
-            country: country,
-            state: state,
-            city: city,
-            date: date
+            country: setCountry,
+            state: setState,
+            city: setCity,
+            date: setDate
         }
     }
 
@@ -39,24 +41,31 @@ const CreateTrip = () => {
         <Container>
             <Form>
                 <Row>
-                    <Col xs='12'>
-                        <input placeholder="Country" class="form-control" id="country" />
-                    </Col>
-                    <Col xs='12'>
-                        <input placeholder="State" class="form-control" id="state" />
-                    </Col>
-                    <Col xs='12'>
-                        <input placeholder="City" class="form-control" id="city" />
-                    </Col>
-                    <Col xs='12'>
-                        <input placeholder="Date" class="form-control" id="date" />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs='12'>
-                        <textarea class="form-control" placeholder="Post your upcoming trip information" rows="5" id="entry"></textarea>
-                    </Col>
-                </Row>
+                    <Col style={{display:"flex"}}>
+                        <Label>
+                            Country: 
+                        <input value={country} onChange={e=>setCountry(e.target.value)} />
+                        </Label>
+                        </Col>
+                        <Col xs='12'>
+                        <Label>
+                            City: 
+                        <input value={state} onChange={e=>setState(e.target.value)} />
+                        </Label>
+                        </Col>
+                        <Col xs='12'>
+                        <Label>
+                            State: 
+                        <input value={city} onChange={e=>setCity(e.target.value)} />
+                        </Label>
+                        </Col>
+                        <Col xs='12'>
+                        <Label>
+                            Date: 
+                        <input value={date} onChange={e=>setDate(e.target.value)} />
+                        </Label>
+                        </Col>
+                        </Row>
                 <Button type="button" onclick="CreateTrip()" id="tripBtn" class="btn btn-dark getControls">Create Trip</Button>
             </Form>
             </Container>

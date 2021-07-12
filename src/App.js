@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import TripsLandingPage from './components/TripsLandingPage'
+import CreateTrip from "./components/CreateTrip"
 
 function App() {
   return (
     <div>
-      <TripsLandingPage />
+      <CreateTrip />
     </div>
   );
 }

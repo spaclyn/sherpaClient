@@ -9,6 +9,7 @@ const TripsLandingPage = () => {
 
     return (
         <div>
+            <h1>Select your destination:</h1>
             <Row>
                 <Button /* onClick={() => CreateTrip()} */ style={{ margin: "10px" }}>
                     Create a trip
