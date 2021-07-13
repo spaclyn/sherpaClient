@@ -2,13 +2,22 @@ import { Container, Row, Col, Form, Button, Label, Dropdown, DropdownToggle, Dro
 
 import { useState } from 'react'
 
+// Dropdown Calendar
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
+
+
+
 const CreateTrip = (props) => {
 
     const accessToken = localStorage.getItem('sessionToken')
-    const [country, setCountry] = useState("Which country?")
-    const [state, setState] = useState("In what state?")
-    const [city, setCity] = useState("Any particular city?")
-    const [date, setDate] = useState("Date or timeframe")
+    const [country, setCountry] = useState("")
+    const [state, setState] = useState("")
+    const [city, setCity] = useState("")
+    const [date, setDate] = useState("")
+    const [button, setButton] = useState("Type of Trip") //Type of Trip button label
+    const [startDate, setStartDate] = useState(new Date()) //Calendar dropdown
+    const [dropdownOpen, setDropdownOpen] = useState(false); //Type of Trip dropdown
 
 
     let newTrip = {
@@ -20,8 +29,8 @@ const CreateTrip = (props) => {
         }
     }
 
-
-    fetch(`http://localhost:3000/trip/create`, {
+const handleSubmit=()=>{
+        fetch(`http://localhost:3000/trip/create`, {
         method: "POST",
         headers: new Headers({
             "Content-Type": "application/json",
@@ -37,22 +46,26 @@ const CreateTrip = (props) => {
         .catch(err => {
             console.error(err)
         })
+    }
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
+
 
     return (
         <Container>
             {/* need to set toggle so that it holds and displays the selected value chosen */}
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                 <DropdownToggle caret>
-                    Type of Trip
+                    {button}
                 </DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem header>Select One</DropdownItem>
-                    <DropdownItem>Idea</DropdownItem>
-                    <DropdownItem>Upcoming</DropdownItem>
-                    <DropdownItem>Past</DropdownItem>
+                    <DropdownItem onClick={(e) => {
+                    setButton("Idea")}}>Idea</DropdownItem>
+                    <DropdownItem  onClick={(e) => {
+                    setButton("Upcoming")}}>Upcoming</DropdownItem>
+                    <DropdownItem  onClick={(e) => {
+                    setButton("Past")}}>Past</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
             <Form>
@@ -78,11 +91,11 @@ const CreateTrip = (props) => {
                     <Col xs='12'>
                         <Label>
                             Date:
-                        <input value={date} onChange={e => setDate(e.target.value)} />
+                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                         </Label>
                     </Col>
                 </Row>
-                <Button type="button" onClick="CreateTrip()" id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                <Button type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
             </Form>
         </Container>
 
