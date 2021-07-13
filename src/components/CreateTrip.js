@@ -1,8 +1,8 @@
-import { Container, Row, Col, Form, Button, Label } from 'reactstrap'
+import { Container, Row, Col, Form, Button, Label, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 
-import {useState} from 'react'
+import { useState } from 'react'
 
-const CreateTrip = () => {
+const CreateTrip = (props) => {
 
     const accessToken = localStorage.getItem('sessionToken')
     const [country, setCountry] = useState("Which country?")
@@ -10,8 +10,9 @@ const CreateTrip = () => {
     const [city, setCity] = useState("Any particular city?")
     const [date, setDate] = useState("Date or timeframe")
 
+
     let newTrip = {
-        tripInfo: {
+        trip: {
             country: setCountry,
             state: setState,
             city: setCity,
@@ -19,7 +20,8 @@ const CreateTrip = () => {
         }
     }
 
-    fetch(`http://localhost:3000/journal/create`, {
+
+    fetch(`http://localhost:3000/trip/create`, {
         method: "POST",
         headers: new Headers({
             "Content-Type": "application/json",
@@ -36,39 +38,55 @@ const CreateTrip = () => {
             console.error(err)
         })
 
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
         <Container>
+            {/* need to set toggle so that it holds and displays the selected value chosen */}
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>
+                    Type of Trip
+                </DropdownToggle>
+                <DropdownMenu>
+                    <DropdownItem header>Select One</DropdownItem>
+                    <DropdownItem>Idea</DropdownItem>
+                    <DropdownItem>Upcoming</DropdownItem>
+                    <DropdownItem>Past</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
             <Form>
                 <Row>
-                    <Col style={{display:"flex"}}>
+                    <Col style={{ display: "flex" }}>
                         <Label>
-                            Country: 
-                        <input value={country} onChange={e=>setCountry(e.target.value)} />
+                            Country:
+                        <input value={country} onChange={e => setCountry(e.target.value)} />
                         </Label>
-                        </Col>
-                        <Col xs='12'>
+                    </Col>
+                    <Col xs='12'>
                         <Label>
-                            City: 
-                        <input value={state} onChange={e=>setState(e.target.value)} />
+                            City:
+                        <input value={state} onChange={e => setState(e.target.value)} />
                         </Label>
-                        </Col>
-                        <Col xs='12'>
+                    </Col>
+                    <Col xs='12'>
                         <Label>
-                            State: 
-                        <input value={city} onChange={e=>setCity(e.target.value)} />
+                            State:
+                        <input value={city} onChange={e => setCity(e.target.value)} />
                         </Label>
-                        </Col>
-                        <Col xs='12'>
+                    </Col>
+                    <Col xs='12'>
                         <Label>
-                            Date: 
-                        <input value={date} onChange={e=>setDate(e.target.value)} />
+                            Date:
+                        <input value={date} onChange={e => setDate(e.target.value)} />
                         </Label>
-                        </Col>
-                        </Row>
-                <Button type="button" onclick="CreateTrip()" id="tripBtn" class="btn btn-dark getControls">Create Trip</Button>
+                    </Col>
+                </Row>
+                <Button type="button" onClick="CreateTrip()" id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
             </Form>
-            </Container>
+        </Container>
+
+        //how to display restaurant information after the primary information is added
 
     )
 }
