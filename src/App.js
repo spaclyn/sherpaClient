@@ -7,8 +7,8 @@ import ViewTrips from "./components/ViewTrips"
 function App() {
   return (
     <div>
-      <TripsLandingPage />
-      <CreateTrip />
+      {/* <TripsLandingPage /> */}
+      {/* <CreateTrip /> */}
       <ViewTrips />
     </div>
   );
