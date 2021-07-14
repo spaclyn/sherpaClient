@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-// import CreateTrip from "./components/CreateTrip"
+import TripsLandingPage from './components/TripsLandingPage'
+import CreateTrip from "./components/CreateTrip"
 import ViewTrips from "./components/ViewTrips"
 
 function App() {
   return (
     <div>
-      {/* <CreateTrip /> */}
+      <TripsLandingPage />
+      <CreateTrip />
       <ViewTrips />
     </div>
   );

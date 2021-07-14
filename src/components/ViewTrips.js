@@ -28,38 +28,39 @@ const ViewTrips = () => {
 
     return (
         <div>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Status</th>
-                        <th>Country</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Details</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Trip Type</th>
-                        <td>Country</td>
-                        <td>State</td>
-                        <td>City</td>
-                        <td>Date</td>
-                        <td><Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Details</Button>
-                            <Collapse isOpen={isOpen}>
-                                <Card>
-                                    <CardBody>
-                                        Lots of information regarding all of the trip details: restaurants, hotels, etc.
-                                    </CardBody>
-                                </Card>
-                            </Collapse>
-                        </td>
-                        <td><Button onclick={EditTrip} color="secondary">Edit Trip</Button></td>
-                    </tr>
-                </tbody>
-            </Table>
+            <Button color="none" onClick={toggle} style={{ marginBottom: '1rem' }}>Trip title that needs string interpolation</Button>
+            <Collapse isOpen={isOpen}>
+                <Card>
+                    <CardBody>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Country</th>
+                                    <th>State</th>
+                                    <th>City</th>
+                                    <th>Date</th>
+                                    <th>Details</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Trip Type</th>
+                                    <td>Country</td>
+                                    <td>State</td>
+                                    <td>City</td>
+                                    <td>Date</td>
+                                    <td>
+                                    </td>
+                                    <td><Button onclick={EditTrip} color="secondary">Edit Trip</Button></td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </CardBody>
+                </Card>
+            </Collapse>
+
 
 
         </div>
