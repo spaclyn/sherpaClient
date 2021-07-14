@@ -1,12 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
-import CreateTrip from "./components/CreateTrip"
-
+// import './App.css';
+// import CreateTrip from "./components/CreateTrip"
+import Auth from './auth/Auth';
 
 function App() {
   return (
     <div>
-    <CreateTrip />
+    <Auth />
+    {/* <CreateTrip /> */}
   </div>
   );
 }
