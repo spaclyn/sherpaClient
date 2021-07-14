@@ -7,25 +7,24 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 
 
-
 const CreateTrip = (props) => {
 
-    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = localStorage.getItem('sessionToken') //currently hard-coded
+    const [type, setType] = useState("")
     const [country, setCountry] = useState("")
     const [state, setState] = useState("")
     const [city, setCity] = useState("")
-    const [date, setDate] = useState("")
-    const [button, setButton] = useState("Type of Trip") //Type of Trip button label
-    const [startDate, setStartDate] = useState(new Date()) //Calendar dropdown
+    const [date, setDate] = useState(new Date())
     const [dropdownOpen, setDropdownOpen] = useState(false); //Type of Trip dropdown
 
 
     let newTrip = {
         trip: {
-            country: setCountry,
-            state: setState,
-            city: setCity,
-            date: setDate
+            type: type,
+            country: country,
+            state: state,
+            city: city,
+            date: date
         }
     }
 
@@ -34,14 +33,13 @@ const handleSubmit=()=>{
         method: "POST",
         headers: new Headers({
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTYyNjIyMDM2OCwiZXhwIjoxNjI2MzA2NzY4fQ.iBfOUlFUWI4l3cOUea6uqEOgzve8ALYoChZ6u452G6s"
         }),
         body: JSON.stringify(newTrip)
     })
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            // displayMine()
         })
         .catch(err => {
             console.error(err)
@@ -50,22 +48,20 @@ const handleSubmit=()=>{
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
-
     return (
         <Container>
-            {/* need to set toggle so that it holds and displays the selected value chosen */}
             <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                 <DropdownToggle caret>
-                    {button}
+                    Type of Trip: {type}
                 </DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem header>Select One</DropdownItem>
                     <DropdownItem onClick={(e) => {
-                    setButton("Idea")}}>Idea</DropdownItem>
+                    setType("Idea")}}>Idea</DropdownItem>
                     <DropdownItem  onClick={(e) => {
-                    setButton("Upcoming")}}>Upcoming</DropdownItem>
+                    setType("Upcoming")}}>Upcoming</DropdownItem>
                     <DropdownItem  onClick={(e) => {
-                    setButton("Past")}}>Past</DropdownItem>
+                    setType("Past")}}>Past</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
             <Form>
@@ -78,20 +74,20 @@ const handleSubmit=()=>{
                     </Col>
                     <Col xs='12'>
                         <Label>
-                            City:
+                            State:
                         <input value={state} onChange={e => setState(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
                         <Label>
-                            State:
+                            City:
                         <input value={city} onChange={e => setCity(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
                         <Label>
                             Date:
-                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                        <DatePicker selected={date} onChange={(date) => setDate(date)} />
                         </Label>
                     </Col>
                 </Row>
@@ -99,7 +95,9 @@ const handleSubmit=()=>{
             </Form>
         </Container>
 
-        //how to display restaurant information after the primary information is added
+        //Redirect to MyTrips page
+
+    
 
     )
 }
