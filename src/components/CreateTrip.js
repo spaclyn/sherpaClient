@@ -51,7 +51,7 @@ const handleSubmit=()=>{
     return (
         <Container>
             <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                <DropdownToggle caret>
+                <DropdownToggle caret  style={{margin:"10px"}}>
                     Type of Trip: {type}
                 </DropdownToggle>
                 <DropdownMenu>
@@ -67,31 +67,31 @@ const handleSubmit=()=>{
             <Form>
                 <Row>
                     <Col style={{ display: "flex" }}>
-                        <Label>
-                            Country:
+                        <Label style={{margin:"10px"}}>
+                            Country:&nbsp;
                         <input value={country} onChange={e => setCountry(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label>
-                            State:
+                        <Label style={{margin:"10px"}}>
+                            State:&nbsp;
                         <input value={state} onChange={e => setState(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label>
-                            City:
+                        <Label style={{margin:"10px"}}>
+                            City:&nbsp;
                         <input value={city} onChange={e => setCity(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label>
-                            Date:
+                        <Label style={{margin:"10px"}}>
+                            Date:&nbsp;
                         <DatePicker selected={date} onChange={(date) => setDate(date)} />
                         </Label>
                     </Col>
                 </Row>
-                <Button type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                <Button  style={{margin:"10px"}} type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
             </Form>
         </Container>
 
