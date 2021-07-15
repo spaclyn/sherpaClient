@@ -1,8 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TripsLandingPage from './components/TripsLandingPage'
-import CreateTrip from "./components/CreateTrip"
-import ViewTrips from "./components/ViewTrips"
+import { TripsLandingPage, CreateTrip, ViewTrips, EditTrip } from './components/index'
 
 function App() {
   return (
