@@ -3,19 +3,27 @@
 import Auth from './auth/Auth';
 // import Signup from './auth/Signup';
 
+import logo from './logo.svg';
+import './App.css';
+import TripsLandingPage from './components/TripsLandingPage'
+import CreateTrip from "./components/CreateTrip"
+import ViewTrips from "./components/ViewTrips"
 
 function App() {
   return (
     <div>
     <Auth />
-    {/* <CreateTrip /> */}
-  </div>
+
+{/* const clearToken = () => {
+   localStorage.clear()
+   setSessionToken('')
+ } */}
+
+      {/* <TripsLandingPage /> */}
+      {/* <CreateTrip /> */}
+      <ViewTrips />
+    </div>
   );
 }
-
-// const clearToken = () => {
-//   localStorage.clear()
-//   setSessionToken('')
-// }
 
 export default App;
