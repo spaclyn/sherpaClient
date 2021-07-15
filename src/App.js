@@ -12,9 +12,9 @@ function App() {
   );
 }
 
-const clearToken = () => {
-  localStorage.clear()
-  setSessionToken('')
-}
+// const clearToken = () => {
+//   localStorage.clear()
+//   setSessionToken('')
+// }
 
 export default App;
