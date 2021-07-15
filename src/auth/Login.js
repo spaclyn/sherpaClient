@@ -8,9 +8,7 @@ const Login = (props) => {
         const handleSubmit = (event) => {
         event.preventDefault()
 
-        // HEADS UP! Changed local host to 3001 so that it would not conflict with another server running on my machine. Adjust as necessary. Same in Signup.js.
-
-        fetch("http://localhost:3001/user/login", {
+        fetch("http://localhost:3000/user/login", {
             method: 'POST',
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 // import './App.css';
 // import CreateTrip from "./components/CreateTrip"
 import Auth from './auth/Auth';
