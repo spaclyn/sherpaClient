@@ -11,7 +11,7 @@ const ViewTrips = (props) => {
     const [updateActive, setUpdateActive] = useState(false)
     const [tripToUpdate, setTripToUpdate] = useState({})
 
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTYyNjIyMDM2OCwiZXhwIjoxNjI2MzA2NzY4fQ.iBfOUlFUWI4l3cOUea6uqEOgzve8ALYoChZ6u452G6s"
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
     // const accessToken = localStorage.getItem('sessionToken')
 
     fetch('http://localhost:3000/trip/mytrips', {
@@ -24,10 +24,13 @@ const ViewTrips = (props) => {
         .then(response => response.json())
         .then(data => {
             data.map((info) => {
-                console.log(info.country)
-
+                let country = info.country
+                let state = info.state
+                let city = info.city
+                let date = info.date
+                let details = info.details
+                console.log(country, state, city, date, details)
             })
-
         })
         .catch(err => {
             console.error(err)
