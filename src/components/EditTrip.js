@@ -1,41 +1,20 @@
-import { Card } from "reactstrap"
+import React, { useState } from 'react'
 
 
-const EditTrip = (tripId) => {
-console.log(tripId)
+const EditTrip = (props) => {
 
-const fetch_url = `http://localhost:3000/trip/update/${tripId}`
-const accessToken = localStorage.getItem('sessionToken')
-
-//display edit fields
-
-
-
-
-fetch(fetch_url, {
-    method: "PUT",
-    headers: new Headers({
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${accessToken}`
-    }),
-    body: JSON.stringify(newTrip)
-})
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-    displayMine()
-})
-.catch(err => {
-    console.error(err)
-})
-
-Card.removeChild(card.lastChild)
+    const [editType, setEditType] = useState(props.tripToUpdate.type)
+    const [editCountry, setEditCountry] = useState(props.tripToUpdate.country)
+    const [editState, setEditState] = useState(props.tripToUpdate.state)
+    const [editCity, setEditCity] = useState(props.tripToUpdate.city)
+    const [editDate, setEditDate] = useState(props.tripToUpdate.date)
+    const [editDetails, setEditDetails] = useState(props.tripToUpdate.details)
 
 
 
 
 
-    return(
+    return (
         <>
         </>
     )

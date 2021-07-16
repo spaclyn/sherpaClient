@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Collapse, Button, CardBody, Card, Table } from 'reactstrap'
 import EditTrip from "./EditTrip"
 import CreateTrip from './CreateTrip'
 
-const ViewTrips = () => {
-    // const accessToken = localStorage.getItem('sessionToken')
 
-    let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTYyNjIyMDM2OCwiZXhwIjoxNjI2MzA2NzY4fQ.iBfOUlFUWI4l3cOUea6uqEOgzve8ALYoChZ6u452G6s"
+
+const ViewTrips = (props) => {
+    //needed to edit trip
+    const [trips, setTrips] = useState([])
+    const [updateActive, setUpdateActive] = useState(false)
+    const [tripToUpdate, setTripToUpdate] = useState({})
+
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTYyNjIyMDM2OCwiZXhwIjoxNjI2MzA2NzY4fQ.iBfOUlFUWI4l3cOUea6uqEOgzve8ALYoChZ6u452G6s"
+    // const accessToken = localStorage.getItem('sessionToken')
 
     fetch('http://localhost:3000/trip/mytrips', {
         method: "GET",
@@ -17,7 +23,6 @@ const ViewTrips = () => {
     })
         .then(response => response.json())
         .then(data => {
-            // console.log('Success:', data)
             data.map((info) => {
                 console.log(info.country)
 
@@ -50,7 +55,7 @@ const ViewTrips = () => {
                                         {/* {details} */}
                                     </td>
                                     <td>
-                                        {/* <Button onClick={EditTrip} color="secondary">Edit Trip</Button> */}
+                                        <Button onClick={EditTrip} color="secondary">Edit Trip</Button>
                                     </td>
                                 </tr>
                             </tbody>
