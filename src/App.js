@@ -1,4 +1,4 @@
-// import CreateTrip from "./components/CreateTrip"
+import React, {useState, useEffect} from 'react'
 import Auth from './auth/Auth';
 import Signup from './auth/Signup';
 
