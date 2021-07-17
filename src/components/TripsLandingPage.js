@@ -2,7 +2,7 @@
 
 import { Button, Row } from 'reactstrap'
 
-// import { CreateTrip, UpcomingTrips, PastTrips, TripIdeas } from 
+
 
 const TripsLandingPage = () => {
 
@@ -11,17 +11,11 @@ const TripsLandingPage = () => {
         <div>
             <h1>Select your destination:</h1>
             <Row>
-                <Button /* onClick={() => CreateTrip()} */ style={{ margin: "10px" }}>
-                    Create a trip
+                <Button /* onclick redirect to Create a Trip */ style={{ margin: "10px" }}>
+                    Create a Trip
                     </Button>
-                <Button /* onClick={() => UpcomingTrips()} */ style={{ margin: "10px" }}>
-                    Upcoming Trips
-                </Button>
-                <Button /* onClick={() => PastTrips()} */ style={{ margin: "10px" }}>
-                    Past Trips
-                </Button>
-                <Button /* onClick={() => TripIdeas()} */ style={{ margin: "10px" }}>
-                    Trip Ideas
+                <Button /* onclick redirect to View Trips */ style={{ margin: "10px" }}>
+                    View Trips
                 </Button>
             </Row>
         </div>

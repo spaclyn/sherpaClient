@@ -9,13 +9,17 @@ import "react-datepicker/dist/react-datepicker.css"
 
 const CreateTrip = (props) => {
 
-    // const accessToken = localStorage.getItem('sessionToken') //currently hard-coded
+    
+    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
     const [type, setType] = useState("")
-    const [country, setCountry] = useState("")
+    const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
     const [city, setCity] = useState("")
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState("mm/dd/yy")
+    const [details, setDetails] = useState("")
     const [dropdownOpen, setDropdownOpen] = useState(false); //Type of Trip dropdown
+
 
 
     let newTrip = {
@@ -24,80 +28,92 @@ const CreateTrip = (props) => {
             country: country,
             state: state,
             city: city,
-            date: date
+            date: date,
+            details: details
         }
     }
 
-const handleSubmit=()=>{
+    const handleSubmit = () => {
         fetch(`http://localhost:3000/trip/create`, {
-        method: "POST",
-        headers: new Headers({
-            "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTYyNjIyMDM2OCwiZXhwIjoxNjI2MzA2NzY4fQ.iBfOUlFUWI4l3cOUea6uqEOgzve8ALYoChZ6u452G6s"
-        }),
-        body: JSON.stringify(newTrip)
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
+            method: "POST",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
+            }),
+            body: JSON.stringify(newTrip)
         })
-        .catch(err => {
-            console.error(err)
-        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
         <Container>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                <DropdownToggle caret  style={{margin:"10px"}}>
-                    Type of Trip: {type}
-                </DropdownToggle>
-                <DropdownMenu>
-                    <DropdownItem header>Select One</DropdownItem>
-                    <DropdownItem onClick={(e) => {
-                    setType("Idea")}}>Idea</DropdownItem>
-                    <DropdownItem  onClick={(e) => {
-                    setType("Upcoming")}}>Upcoming</DropdownItem>
-                    <DropdownItem  onClick={(e) => {
-                    setType("Past")}}>Past</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
+            <div>
+                <h2>Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</h2>
+            </div>
             <Form>
+                <Dropdown isOpen={dropdownOpen} toggle={toggle} >
+                    <DropdownToggle caret style={{ margin: "10px" }}>
+                        Type of Trip: {type}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem header>Select One</DropdownItem>
+                        <DropdownItem onClick={(e) => {
+                            setType("Idea")
+                        }}>Idea</DropdownItem>
+                        <DropdownItem onClick={(e) => {
+                            setType("Upcoming")
+                        }}>Upcoming</DropdownItem>
+                        <DropdownItem onClick={(e) => {
+                            setType("Past")
+                        }}>Past</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
                 <Row>
                     <Col style={{ display: "flex" }}>
-                        <Label style={{margin:"10px"}}>
+                        <Label style={{ margin: "10px" }}>
                             Country:&nbsp;
                         <input value={country} onChange={e => setCountry(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label style={{margin:"10px"}}>
+                        <Label style={{ margin: "10px" }}>
                             State:&nbsp;
                         <input value={state} onChange={e => setState(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label style={{margin:"10px"}}>
+                        <Label style={{ margin: "10px" }}>
                             City:&nbsp;
                         <input value={city} onChange={e => setCity(e.target.value)} />
                         </Label>
                     </Col>
                     <Col xs='12'>
-                        <Label style={{margin:"10px"}}>
+                        <Label style={{ margin: "10px" }} placeholder="date placeholder">
                             Date:&nbsp;
-                        <DatePicker selected={date} onChange={(date) => setDate(date)} />
+                            <input value={date} onChange={e => setDate(e.target.value)} />
+                        </Label>
+                    </Col>
+                    <Col xs='12'>
+                        <Label style={{ margin: "10px" }} placeholder="date placeholder">
+                            Details:&nbsp;
+                            <input value={details} onChange={e => setDetails(e.target.value)} />
                         </Label>
                     </Col>
                 </Row>
-                <Button  style={{margin:"10px"}} type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                <Button style={{ margin: "10px" }} type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                {/* need to redirect to ViewTrips component */}
             </Form>
         </Container>
 
-        //Redirect to MyTrips page
 
-    
 
     )
 }

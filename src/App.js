@@ -4,9 +4,12 @@ import Signup from './auth/Signup';
 
 // import logo from './logo.svg';
 import './App.css';
+// import { TripsLandingPage, CreateTrip, ViewTrips, EditTrip } from './components/index'
 import TripsLandingPage from './components/TripsLandingPage'
-import CreateTrip from "./components/CreateTrip"
-import ViewTrips from "./components/ViewTrips"
+import CreateTrip from './components/CreateTrip'
+// import EditTrip from './components/EditTrip'
+import ViewTrips from './components/ViewTrips'
+
 
 function App() {
 
@@ -39,8 +42,9 @@ function App() {
     <Auth updateToken={updateToken}/>
 
       {/* <TripsLandingPage /> */}
-      {/* <CreateTrip /> */}
+      <CreateTrip />
       <ViewTrips />
+      {/* <EditTrips /> */}
     </div>
   );
 }
