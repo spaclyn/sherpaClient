@@ -10,8 +10,8 @@ const ViewTrips = () => {
     // const [tripToUpdate, setTripToUpdate] = useState({})
 
     const [tripData, setTripData] = useState([])
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
+    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
 
 
     useEffect(() => {
@@ -34,30 +34,6 @@ const ViewTrips = () => {
     //need to add this to remove console warning regarding unique key prop <ViewTrips tripData={trip} />
     const tripList = tripData.map(trip => (
         <div>
-            {/* <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>{trip.country}, {trip.state}, {trip.city}<i>Click for Details</i></Button>
-            <Collapse isOpen={isOpen}>
-                <Card>
-                    <CardBody>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        {trip.details}
-                                    </td>
-                                    <td>
-                                        <Button onClick={EditTrip} color="secondary">Edit Trip</Button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </CardBody>
-                </Card>
-            </Collapse> */}
             <Card>
                 <CardBody>
                     <Table>
@@ -81,6 +57,7 @@ const ViewTrips = () => {
 
     return (
         <div>
+            <h2>Whoa! Check out all of the awesome trips you have, name! Have you event spent time in Location?</h2>
             <Card>
                 <CardBody>
                     <Table>
