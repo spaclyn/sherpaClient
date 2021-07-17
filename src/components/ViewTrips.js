@@ -4,23 +4,16 @@ import EditTrip from "./EditTrip"
 import CreateTrip from './CreateTrip'
 
 
-
 const ViewTrips = () => {
     //needed to edit trip
-    const [updateActive, setUpdateActive] = useState(false)
-    const [tripToUpdate, setTripToUpdate] = useState({})
+    // const [updateActive, setUpdateActive] = useState(false)
+    // const [tripToUpdate, setTripToUpdate] = useState({})
 
     const [tripData, setTripData] = useState([])
-    const [type, setType] = useState("")
-    const [country, setCountry] = useState("")
-    const [state, setState] = useState("")
-    const [city, setCity] = useState("")
-    const [date, setDate] = useState()
-    const [details, setDetails] = useState("")
     // const accessToken = localStorage.getItem('sessionToken')
     const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
 
-    
+
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
             method: "GET",
@@ -33,25 +26,15 @@ const ViewTrips = () => {
             .then(json => setTripData(json))
     }, [accessToken])
 
-    useEffect(() => {
-        setType(tripData.map((e) => e.type))
-        setCountry(tripData.map((e) => e.country))
-        setState(tripData.map((e) => e.state))
-        setCity(tripData.map((e) => e.city))
-        setDate(tripData.map((e) => e.date))
-        setDetails(tripData.map((e) => e.details))
 
-    }, [tripData])
-
-    
-
+    //dropdown for details
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
 
-    return (
+    //need to add this to remove console warning regarding unique key prop <ViewTrips tripData={trip} />
+    const tripList = tripData.map(trip => (
         <div>
-            <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>{country}, {state}, {city}, {date}<i>Click for Details</i></Button>
-            
+            {/* <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>{trip.country}, {trip.state}, {trip.city}<i>Click for Details</i></Button>
             <Collapse isOpen={isOpen}>
                 <Card>
                     <CardBody>
@@ -64,7 +47,7 @@ const ViewTrips = () => {
                             <tbody>
                                 <tr>
                                     <td>
-                                        {details}
+                                        {trip.details}
                                     </td>
                                     <td>
                                         <Button onClick={EditTrip} color="secondary">Edit Trip</Button>
@@ -74,12 +57,58 @@ const ViewTrips = () => {
                         </Table>
                     </CardBody>
                 </Card>
-            </Collapse>
+            </Collapse> */}
+            <Card>
+                <CardBody>
+                    <Table>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{trip.type}</th>
+                                <td>{trip.country}</td>
+                                <td>{trip.state}</td>
+                                <td>{trip.city}</td>
+                                <td>{trip.date}</td>
+                                <td>{trip.details}</td>
+                                <td><Button onClick={EditTrip} color="secondary">Edit</Button>&nbsp;&nbsp;<Button onClick={EditTrip} color="secondary">Delete</Button></td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </CardBody>
+            </Card>
+
+        </div>
+    ))
+
+    return (
+        <div>
+            <Card>
+                <CardBody>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Date</th>
+                                <th>Details</th>
+                                <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+                            <tr>
+                                
+                            </tr>
+                        </tbody>
+                    </Table>
+                </CardBody>
+            </Card>
+            {tripList}
             <div>
                 <Button onClick={CreateTrip} color="secondary">Create a New Trip</Button>
             </div>
-
-
         </div>
     )
 

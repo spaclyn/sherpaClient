@@ -10,12 +10,14 @@ import "react-datepicker/dist/react-datepicker.css"
 const CreateTrip = (props) => {
 
     
-    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = localStorage.getItem('sessionToken')
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
     const [type, setType] = useState("")
-    const [country, setCountry] = useState("")
+    const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
     const [city, setCity] = useState("")
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState("mm/dd/yy")
+    const [details, setDetails] = useState("")
     const [dropdownOpen, setDropdownOpen] = useState(false); //Type of Trip dropdown
 
 
@@ -26,7 +28,8 @@ const CreateTrip = (props) => {
             country: country,
             state: state,
             city: city,
-            date: date
+            date: date,
+            details: details
         }
     }
 
@@ -92,7 +95,13 @@ const CreateTrip = (props) => {
                     <Col xs='12'>
                         <Label style={{ margin: "10px" }} placeholder="date placeholder">
                             Date:&nbsp;
-                        <DatePicker selected={date} onChange={(date) => setDate(date)} />
+                            <input value={date} onChange={e => setDate(e.target.value)} />
+                        </Label>
+                    </Col>
+                    <Col xs='12'>
+                        <Label style={{ margin: "10px" }} placeholder="date placeholder">
+                            Details:&nbsp;
+                            <input value={details} onChange={e => setDetails(e.target.value)} />
                         </Label>
                     </Col>
                 </Row>

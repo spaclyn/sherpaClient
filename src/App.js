@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       {/* <TripsLandingPage /> */}
-      {/* <CreateTrip /> */}
+      <CreateTrip />
       <ViewTrips />
       {/* <EditTrips /> */}
     </div>
