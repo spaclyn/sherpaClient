@@ -10,8 +10,8 @@ import "react-datepicker/dist/react-datepicker.css"
 const CreateTrip = (props) => {
 
     
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
+    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
@@ -55,6 +55,9 @@ const CreateTrip = (props) => {
 
     return (
         <Container>
+            <div>
+                <h2>Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</h2>
+            </div>
             <Form>
                 <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                     <DropdownToggle caret style={{ margin: "10px" }}>
