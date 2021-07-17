@@ -5,44 +5,53 @@ import CreateTrip from './CreateTrip'
 
 
 
-const ViewTrips = (props) => {
+const ViewTrips = () => {
     //needed to edit trip
-    const [trips, setTrips] = useState([])
     const [updateActive, setUpdateActive] = useState(false)
     const [tripToUpdate, setTripToUpdate] = useState({})
 
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
+    const [tripData, setTripData] = useState([])
+    const [type, setType] = useState("")
+    const [country, setCountry] = useState("")
+    const [state, setState] = useState("")
+    const [city, setCity] = useState("")
+    const [date, setDate] = useState()
+    const [details, setDetails] = useState("")
     // const accessToken = localStorage.getItem('sessionToken')
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
 
-    fetch('http://localhost:3000/trip/mytrips', {
-        method: "GET",
-        headers: new Headers({
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            data.map((info) => {
-                let country = info.country
-                let state = info.state
-                let city = info.city
-                let date = info.date
-                let details = info.details
-                console.log(country, state, city, date, details)
+    
+    useEffect(() => {
+        fetch('http://localhost:3000/trip/mytrips', {
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
             })
         })
-        .catch(err => {
-            console.error(err)
-        })
+            .then(res => res.json())
+            .then(json => setTripData(json))
+    }, [accessToken])
+
+    useEffect(() => {
+        setType(tripData.map((e) => e.type))
+        setCountry(tripData.map((e) => e.country))
+        setState(tripData.map((e) => e.state))
+        setCity(tripData.map((e) => e.city))
+        setDate(tripData.map((e) => e.date))
+        setDetails(tripData.map((e) => e.details))
+
+    }, [tripData])
+
+    
 
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
 
     return (
         <div>
-            <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>Trip title that needs string interpolation <i>Click for Details</i></Button>
-            {/* {country}, {state}, {city}, {date} */}
+            <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>{country}, {state}, {city}, {date}<i>Click for Details</i></Button>
+            
             <Collapse isOpen={isOpen}>
                 <Card>
                     <CardBody>
@@ -55,7 +64,7 @@ const ViewTrips = (props) => {
                             <tbody>
                                 <tr>
                                     <td>
-                                        {/* {details} */}
+                                        {details}
                                     </td>
                                     <td>
                                         <Button onClick={EditTrip} color="secondary">Edit Trip</Button>
