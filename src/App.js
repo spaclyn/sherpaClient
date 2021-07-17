@@ -24,14 +24,19 @@ function App() {
     console.log(sessionToken)
   }
 
+  // We need to call the following code from somewhere. The original instructions were having us place this in the SiteBar:
+  // <SiteBar clickLogout={clearToken} />
+
+  const clearToken = () => {
+    localStorage.clear()
+    setSessionToken('')
+  }
+
   return (
     <div>
     <Auth />
 
-{/* const clearToken = () => {
-   localStorage.clear()
-   setSessionToken('')
- } */}
+    <Auth updateToken={updateToken}/>
 
       {/* <TripsLandingPage /> */}
       {/* <CreateTrip /> */}
