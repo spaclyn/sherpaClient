@@ -15,7 +15,7 @@ import ViewTrips from './components/ViewTrips'
 function App() {
   return (
     <div>
-    <Auth />
+    {/* <Auth /> */}
 
 {/* const clearToken = () => {
    localStorage.clear()
@@ -23,7 +23,7 @@ function App() {
  } */}
 
       {/* <TripsLandingPage /> */}
-      <CreateTrip />
+      {/* <CreateTrip /> */}
       <ViewTrips />
       {/* <EditTrips /> */}
     </div>
