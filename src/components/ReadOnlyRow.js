@@ -11,7 +11,7 @@ const ReadOnlyRow = ({ trip, handleEditClick, handleDeleteClick }) => {
                 <td>{trip.city}</td>
                 <td>{trip.date}</td>
                 <td>{trip.details}</td>
-                <td><Button type="button" onClick={(event)=>handleEditClick(event, trip)}>Edit</Button>
+                <td><Button type="button" onClick={(event)=>handleEditClick(event, trip)}>Edit</Button>&nbsp;&nbsp;&nbsp;
                 <Button type="button" onClick={()=>handleDeleteClick(trip.id)}>Delete</Button></td>
             </tr>
     )

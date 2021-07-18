@@ -35,7 +35,7 @@ const ViewTrips = () => {
         date: "",
         details: ""
     })
-    
+
     //grabs the ID of the row you want to edit and assigns the new value to the 'name' attribute of that row
     const [editTripId, setEditTripId] = useState(null)
 
@@ -50,7 +50,7 @@ const ViewTrips = () => {
 
         setEditTripData(newTripData)
     }
-    
+
     //submits the edits made in the handleEditTripData function
     const handleEditFormSubmit = (event) => {
         event.preventDefault()
@@ -72,6 +72,8 @@ const ViewTrips = () => {
 
         setTripsData(newTripsData)
         setEditTripId(null)
+
+        //! how to set it as a PUT request?
     }
 
     //when the Edit button is clicked, determines which form fields are updated to which values
@@ -97,6 +99,8 @@ const ViewTrips = () => {
     }
 
     //Deletes a trip from the table
+    //! how to set it as a DELETE request?
+
     const handleDeleteClick = (tripId) => {
         const newTrip = [...tripsData]
 
@@ -111,34 +115,34 @@ const ViewTrips = () => {
         <div>
             <h2>Whoa! Check out all of the awesome trips you have, name! Have you even spent time in Location?</h2>
             <form onSubmit={handleEditFormSubmit}>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Country</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Details</th>
-                        <th>Modify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tripsData.map((trip) =>
-                        <Fragment>
-                        {editTripId === trip.id
-                        ? (<EditTrip editTripData={editTripData} handleEditTripData={handleEditTripData} handleCancelClick={handleCancelClick} />)
-                        : (<ReadOnlyRow trip={trip} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />)
-                        }
-                    </Fragment>
-                    )}
-                </tbody>
-            </Table>
+                <Table>
+                    <thead>
+                        <tr scope="row">
+                            <th style={{ flex: 1 }}>Type</th>
+                            <th style={{ flex: 1 }}>Country</th>
+                            <th style={{ flex: 1 }}>State</th>
+                            <th style={{ flex: 1 }}>City</th>
+                            <th style={{ flex: 1 }}>Date</th>
+                            <th style={{ flex: 2 }}>Details</th>
+                            <th style={{ flex: 1 }}>Modify</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tripsData.map((trip) =>
+                            <Fragment>
+                                {editTripId === trip.id
+                                    ? (<EditTrip editTripData={editTripData} handleEditTripData={handleEditTripData} handleCancelClick={handleCancelClick} />)
+                                    : (<ReadOnlyRow trip={trip} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />)
+                                }
+                            </Fragment>
+                        )}
+                    </tbody>
+                </Table>
             </form>
             <div>
                 <Button onClick={CreateTrip} color="secondary">Create a New Trip</Button>
             </div>
-        </div>
+        </div >
     )
 
 }

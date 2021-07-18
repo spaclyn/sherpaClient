@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'reactstrap'
 
 
 const EditTrip = ( {editTripData, handleEditTripData, handleCancelClick }) => {
@@ -22,8 +23,7 @@ const EditTrip = ( {editTripData, handleEditTripData, handleCancelClick }) => {
             <td><input type="text" required="required" placeholder="Enter a Date" name="date" value={editTripData.date} onChange={handleEditTripData}></input></td>
             <td><input type="text" required="required" placeholder="Enter New Details" name="details" value={editTripData.details} onChange={handleEditTripData}></input></td>
             <td>
-                <button type="submit">Save</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <Button type="submit">Save</Button>&nbsp;&nbsp;<Button type="button" onClick={handleCancelClick}>Cancel</Button>
             </td>
         </tr>
     )
