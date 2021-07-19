@@ -3,6 +3,9 @@ import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
 import './Landing.css';
 
 const LandingPage = (props) => {
+
+
+  
   return (
     <div>
       <Jumbotron fluid>
@@ -21,7 +24,7 @@ const LandingPage = (props) => {
       <Jumbotron className="bottom">
         <div className="blue">
             <h1>change how you travel.</h1>
-            <Button color="primary" size="lg">Sign Up</Button> &nbsp;&nbsp; <Button color="primary">Login</Button>
+            <Button color="primary" size="lg">Sign Up</Button> &nbsp; &nbsp; &nbsp; &nbsp; <Button color="primary">Login</Button> 
           </div>
       </Jumbotron>
     </div>

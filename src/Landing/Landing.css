@@ -6,7 +6,8 @@ body {
 
 .jumbotron {
     background-color: transparent;
-    background-image: url('https://puu.sh/HXhPB/d0e319ff48.jpg');
+    background-image: url('./assets/mountain0.jpg');
+    background-attachment: fixed;
     background-size: cover;
     background-position: 50%;
     height: 400px;
@@ -44,7 +45,7 @@ h1.display-2{
 .smart {
     margin-right: 900px;
     padding-top: 250px;
-    padding-bottom: 250px;
+    padding-bottom: 260px;
 }
 
 .smart h1 {
@@ -68,3 +69,35 @@ h1.display-2{
     font-size: 40px;
 }
 
+button {
+    padding: 10px 20px 10px 20px;
+    text-transform: uppercase;
+    background-color: #364063;
+    color: white;
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+    border: 1px rgba(0, 0, 0, 0.171) solid;
+    cursor: pointer;
+}
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(190, 190, 190); 
+  }
