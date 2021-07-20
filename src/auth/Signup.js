@@ -8,26 +8,30 @@ const Signup = (props) => {
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(email, password, name, location)
+        console.log(email, password, name, location);
 
         fetch("http://localhost:3000/user/register", {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password, name: name, location: location}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
+                // 'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
             })
-        }).then((response) => {
-                response.json()
-                console.log(response)
-            }
-        ).then((data) => {
-            props.updateToken(data.sessionToken)
+        })
+
+        await ((response) => {
+            response.json()
+            // console.log(response.json())
+        }) 
+        await ((data) => {
+            // props.updateToken(data.sessionToken)
             console.log(data)
-        }).catch(err => console.log(err))
+        }); 
+        await (err => console.log(err))
     }
+
 
     return(
         <div>
