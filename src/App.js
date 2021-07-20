@@ -37,7 +37,6 @@ function App() {
 
   return (
     <div>
-    <Auth />
 
     <Auth updateToken={updateToken}/>
 
