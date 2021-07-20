@@ -2,12 +2,15 @@ import React from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
 import './Landing.css';
 
+import Navibar from '../Navigation/Navibar';
+
 const LandingPage = (props) => {
 
 
   
   return (
     <div>
+      <Navibar />
       <Jumbotron fluid>
         <Container fluid>
           <h1 className="display-3">Sherpa</h1>
