@@ -8,8 +8,8 @@ import ReadOnlyRow from './ReadOnlyRow'
 const ViewTrips = () => {
 
     const [tripsData, setTripsData] = useState([])
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgxOTI5MSwiZXhwIjoxNjI2OTA1NjkxfQ.YzvcQntWIvK2ReoZ0a4XlGMq3UDo-o3cQjf0UB2htZ4"
+    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgyNzc3MywiZXhwIjoxNjI2OTE0MTczfQ.JMh7QSr8Q1AceeWeGHGAt_KQ5B2chfyqhc_sPmhNQyU"
 
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
@@ -88,8 +88,6 @@ const ViewTrips = () => {
 
         setTripsData(newTripsData)
         setEditTripId(null)
-
-        //! how to set it as a PUT request?
     }
 
     //when the Edit button is clicked, determines which form fields are updated to which values
@@ -115,16 +113,28 @@ const ViewTrips = () => {
     }
 
     //Deletes a trip from the table
-    //! how to set it as a DELETE request?
-
     const handleDeleteClick = (tripId) => {
-        const newTrip = [...tripsData]
+        // console.log(tripId);
+        fetch(`http://localhost:3000/trip/delete/${tripId}`, {
+            method: "DELETE",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            
+        }) .catch (err => { console.error(err) })
+        
+        const newTrips = [...tripsData]
 
         const index = tripsData.findIndex((trip) => trip.id === tripId)
 
-        newTrip.splice(index, 1)
+        newTrips.splice(index, 1)
 
-        setTripsData(newTrip)
+        setTripsData(newTrips)
     }
 
     return (
