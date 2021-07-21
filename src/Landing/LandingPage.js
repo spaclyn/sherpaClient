@@ -10,7 +10,6 @@ const LandingPage = (props) => {
   
   return (
     <div>
-      <Navibar />
       <Jumbotron fluid>
         <Container fluid>
           <h1 className="display-3">Sherpa</h1>

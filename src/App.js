@@ -9,16 +9,22 @@ import './App.css';
 import TripsLandingPage from './components/TripsLandingPage'
 import CreateTrip from './components/CreateTrip'
 // import EditTrip from './components/EditTrip'
-import ViewTrips from './components/ViewTrips'
+// import ViewTrips from './components/ViewTrips'
 
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
 
-
+import Page from './Pages/pages';
+import Navibar from './Navigation/Navibar';
 import LandingPage from './Landing/LandingPage';
 
 function App() {
   return (
     <div className="App">
-        <LandingPage />
+        <Router>
+        <Page />
+        </Router>
     {/* <Auth /> */}
 
 {/* const clearToken = () => {
@@ -28,7 +34,7 @@ function App() {
 
       {/* <TripsLandingPage /> */}
       {/* <CreateTrip /> */}
-      <ViewTrips />
+      {/* <ViewTrips /> */}
       {/* <EditTrips /> */}
     </div>
   );

@@ -1,6 +1,16 @@
+import {
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom'
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import './Navibar.css';
+
+import LandingPage from '../Landing/LandingPage';
+import CreateTrip from '../components/CreateTrip';
+import TripsLandingPage from '../components/TripsLandingPage';
+import ViewTrips from '../components/ViewTrips';
 
 const Navibar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -9,20 +19,38 @@ const Navibar = (props) => {
 
   return (
     <div>
-      <Navbar color="faded" light>
+      <Navbar color="faded fixed-top" light>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink><Link to='/'>SHERPA</Link></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink><Link to='/home'>HOME</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to='/trips'>VIEW</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to='/create'>CREATE</Link></NavLink>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+      <div className="page">
+        <div className="comp">
+          <Switch>
+            <Route exact path='/'><LandingPage /></Route>
+            <Route exact path='/home'><TripsLandingPage /></Route>
+            <Route exact path='/create'><CreateTrip /></Route>
+            <Route exact path='/view'><ViewTrips /></Route>
+          </Switch>
+        </div>
+      </div>
+
+
+      </div>
   );
 }
 
