@@ -2,9 +2,8 @@ import React from 'react'
 import { Button } from 'reactstrap'
 
 
-const EditTrip = ( {editTripData, handleEditTripData, handleCancelClick }) => {
-
-
+const EditTrip = ( { editTripData, handleEditTripData, handleCancelClick, tripId }) => {
+    
     return (
         <tr>
             <td>
