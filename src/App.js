@@ -12,9 +12,13 @@ import CreateTrip from './components/CreateTrip'
 import ViewTrips from './components/ViewTrips'
 
 
+
+import LandingPage from './Landing/LandingPage';
+
 function App() {
   return (
-    <div>
+    <div className="App">
+        <LandingPage />
     {/* <Auth /> */}
 
 {/* const clearToken = () => {
