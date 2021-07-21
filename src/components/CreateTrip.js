@@ -10,8 +10,8 @@ import "react-datepicker/dist/react-datepicker.css"
 const CreateTrip = (props) => {
 
     
-    const accessToken = localStorage.getItem('sessionToken')
-    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjQ2MTQxMywiZXhwIjoxNjI2NTQ3ODEzfQ.jdaTbOtC3YcpvtPpD-_7vPdh4ELs0ZYJ9KNGEqyeSKQ"
+    // const accessToken = localStorage.getItem('sessionToken')
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgxOTI5MSwiZXhwIjoxNjI2OTA1NjkxfQ.YzvcQntWIvK2ReoZ0a4XlGMq3UDo-o3cQjf0UB2htZ4"
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")

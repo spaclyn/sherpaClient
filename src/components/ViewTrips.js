@@ -9,7 +9,7 @@ const ViewTrips = () => {
 
     const [tripsData, setTripsData] = useState([])
     // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjYzNDc5NywiZXhwIjoxNjI2NzIxMTk3fQ.cruo3ZGt-dEms5UtLnyxQ4Y9qvotA4TWLtbb7JehjS4"
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgxOTI5MSwiZXhwIjoxNjI2OTA1NjkxfQ.YzvcQntWIvK2ReoZ0a4XlGMq3UDo-o3cQjf0UB2htZ4"
 
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
@@ -54,6 +54,22 @@ const ViewTrips = () => {
     //submits the edits made in the handleEditTripData function
     const handleEditFormSubmit = (event) => {
         event.preventDefault()
+
+        fetch(`http://localhost:3000/trip/update/${editTripId}`, {
+            method: "PUT",
+            body: JSON.stringify(editTripData),
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.error(err)
+        })
 
         const editedTrip = {
             id: editTripId,
@@ -129,9 +145,9 @@ const ViewTrips = () => {
                     </thead>
                     <tbody>
                         {tripsData.map((trip) =>
-                            <Fragment>
+                            <Fragment key={trip.id}>
                                 {editTripId === trip.id
-                                    ? (<EditTrip editTripData={editTripData} handleEditTripData={handleEditTripData} handleCancelClick={handleCancelClick} />)
+                                    ? (<EditTrip tripId={trip.id} editTripData={editTripData} handleEditTripData={handleEditTripData} handleCancelClick={handleCancelClick} />)
                                     : (<ReadOnlyRow trip={trip} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />)
                                 }
                             </Fragment>
