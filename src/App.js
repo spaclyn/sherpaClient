@@ -8,13 +8,12 @@ import './App.css';
 // import { TripsLandingPage, CreateTrip, ViewTrips, EditTrip } from './components/index'
 import TripsLandingPage from './components/TripsLandingPage'
 import CreateTrip from './components/CreateTrip'
+import ViewTrips from './components/ViewTrips'
 // import EditTrip from './components/EditTrip'
 // import ViewTrips from './components/ViewTrips'
-
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
-
 import Page from './Pages/pages';
 import Navibar from './Navigation/Navibar';
 import LandingPage from './Landing/LandingPage';
@@ -33,6 +32,9 @@ function App() {
  } */}
 
       {/* <TripsLandingPage /> */}
+      <CreateTrip />
+      <ViewTrips />
+     
       {/* <CreateTrip /> */}
       {/* <ViewTrips /> */}
       {/* <EditTrips /> */}
