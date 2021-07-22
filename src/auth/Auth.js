@@ -3,9 +3,12 @@ import { Container, Row, Col } from "reactstrap"
 import Signup from "./Signup"
 import Login from "./Login"
 import './Auth.css'
+import { Jumbotron } from 'reactstrap';
 
 const Auth = (props) => {
     return(
+        <div>
+                <Jumbotron className="create" fluid></Jumbotron>
         <Container className="auth-container">
             <Row>
                 <Col md="6">
@@ -16,6 +19,8 @@ const Auth = (props) => {
                 </Col>
             </Row>
         </Container>
+        <Jumbotron className="bottom"></Jumbotron>
+        </div>
     )
 }
 

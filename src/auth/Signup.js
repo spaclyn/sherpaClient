@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import './Auth.css'
 
+
 const Signup = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -49,6 +50,7 @@ const Signup = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />       
                 </FormGroup>
+                <br />
                 <Button type="submit">Sign Up</Button>
             </Form>
         </div>
