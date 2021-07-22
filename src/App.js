@@ -11,6 +11,9 @@ import CreateTrip from './components/CreateTrip'
 import ViewTrips from './components/ViewTrips'
 
 
+
+import LandingPage from './Landing/LandingPage';
+
 function App() {
 
   const [sessionToken, setSessionToken] = useState('')
@@ -36,12 +39,14 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
+        <LandingPage />
+    {/* <Auth /> */}
 
     <Auth updateToken={updateToken}/>
 
       {/* <TripsLandingPage /> */}
-      <CreateTrip />
+      {/* <CreateTrip /> */}
       <ViewTrips />
       {/* <EditTrips /> */}
     </div>

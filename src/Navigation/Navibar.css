@@ -1,0 +1,16 @@
+.buddy {
+    background-color: green;
+}
+
+.navbar {
+    text-align: left;
+    background-color: transparent;
+    background-image: url('./assets/mountain0.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.navbar-collapse {
+    background-color: transparent;
+}
