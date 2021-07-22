@@ -11,6 +11,7 @@ import LandingPage from '../Landing/LandingPage';
 import CreateTrip from '../components/CreateTrip';
 import TripsLandingPage from '../components/TripsLandingPage';
 import ViewTrips from '../components/ViewTrips';
+import Auth from '../auth/Auth';
 
 const Navibar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -25,6 +26,9 @@ const Navibar = (props) => {
           <Nav navbar>
             <NavItem>
               <NavLink><Link to='/'>SHERPA</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to='/login'>LOGIN</Link></NavLink>
             </NavItem>
             <NavItem>
               <NavLink><Link to='/home'>HOME</Link></NavLink>
@@ -42,6 +46,7 @@ const Navibar = (props) => {
         <div className="comp">
           <Switch>
             <Route exact path='/'><LandingPage /></Route>
+            <Route exact path='/login'><Auth /></Route>
             <Route exact path='/home'><TripsLandingPage /></Route>
             <Route exact path='/create'><CreateTrip /></Route>
             <Route exact path='/view'><ViewTrips /></Route>

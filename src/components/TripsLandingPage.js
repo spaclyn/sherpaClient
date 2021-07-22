@@ -1,5 +1,6 @@
 //Page to be viewed after a user signs in
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap'
+import './trips.css';
 
 
 
@@ -12,12 +13,14 @@ const TripsLandingPage = () => {
             </Jumbotron>
             <h1>Select your destination:</h1>
             <Row>
-                <Button /* onclick redirect to Create a Trip */ style={{ margin: "10px" }}>
-                    Create a Trip
+                <center>
+                    <Button className="button1" /* onclick redirect to Create a Trip */ style={{ margin: "10px" }}>
+                        Create a Trip
                     </Button>
-                <Button /* onclick redirect to View Trips */ style={{ margin: "10px" }}>
-                    View Trips
-                </Button>
+                    <Button className="button1" /* onclick redirect to View Trips */ style={{ margin: "10px" }}>
+                        View Trips
+                    </Button>
+                </center>
             </Row>
         </div>
     )

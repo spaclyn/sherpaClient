@@ -1,4 +1,6 @@
 import { Container, Row, Col, Form, Button, Label, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
+import { Jumbotron } from 'reactstrap';
+import './trips.css';
 
 import { useState } from 'react'
 
@@ -54,10 +56,13 @@ const CreateTrip = (props) => {
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
+        <div>
+        <Jumbotron className="create" fluid>
+            <Container fluid>
+                <p className="lead create">Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</p>
+            </Container>
+        </Jumbotron>
         <Container>
-            <div>
-                <h2>Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</h2>
-            </div>
             <Form>
                 <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                     <DropdownToggle caret style={{ margin: "10px" }}>
@@ -112,7 +117,7 @@ const CreateTrip = (props) => {
                 {/* need to redirect to ViewTrips component */}
             </Form>
         </Container>
-
+        </div>
 
 
     )
