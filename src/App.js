@@ -8,17 +8,15 @@ import './App.css';
 // import { TripsLandingPage, CreateTrip, ViewTrips, EditTrip } from './components/index'
 import TripsLandingPage from './components/TripsLandingPage'
 import CreateTrip from './components/CreateTrip'
-<<<<<<< HEAD
-import ViewTrips from './components/ViewTrips'
-=======
 // import EditTrip from './components/EditTrip'
 // import ViewTrips from './components/ViewTrips'
->>>>>>> b8197f512a05e41d2ce1f85a26389e035754ecb3
 
+import ViewTrips from './components/ViewTrips'
+// import EditTrip from './components/EditTrip'
+// import ViewTrips from './components/ViewTrips'
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
-
 import Page from './Pages/pages';
 import Navibar from './Navigation/Navibar';
 import LandingPage from './Landing/LandingPage';
@@ -26,26 +24,27 @@ import LandingPage from './Landing/LandingPage';
 function App() {
   return (
     <div className="App">
-        <Router>
+      <Router>
         <Page />
-        </Router>
-    {/* <Auth /> */}
+      </Router>
+      {/* <Auth /> */}
 
-{/* const clearToken = () => {
-   localStorage.clear()
-   setSessionToken('')
+      {/* const clearToken = () => {
+    localStorage.clear()
+    setSessionToken('')
  } */}
 
       {/* <TripsLandingPage /> */}
-<<<<<<< HEAD
-      <CreateTrip />
-      <ViewTrips />
-     
-=======
       {/* <CreateTrip /> */}
       {/* <ViewTrips /> */}
       {/* <EditTrips /> */}
->>>>>>> b8197f512a05e41d2ce1f85a26389e035754ecb3
+
+      <CreateTrip />
+      <ViewTrips />
+
+      {/* <CreateTrip /> */}
+      {/* <ViewTrips /> */}
+      {/* <EditTrips /> */}
     </div>
   );
 }
