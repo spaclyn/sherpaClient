@@ -80,6 +80,9 @@ button.blue {
     cursor: pointer;
 }
 
+.blurb {
+    height: 650px;
+}
 
 /* SCROLLBAR */
 /* width */
