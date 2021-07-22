@@ -39,8 +39,8 @@ function App() {
       {/* <ViewTrips /> */}
       {/* <EditTrips /> */}
 
-      <CreateTrip />
-      <ViewTrips />
+      {/* <CreateTrip /> */}
+      {/* <ViewTrips /> */}
 
       {/* <CreateTrip /> */}
       {/* <ViewTrips /> */}
