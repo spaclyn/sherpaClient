@@ -1,5 +1,6 @@
 import { Container, Row, Col, Form, Button, Label, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
-import React from 'react'
+import { Jumbotron } from 'reactstrap';
+import './trips.css';
 
 import { useState } from 'react'
 
@@ -11,8 +12,8 @@ import "react-datepicker/dist/react-datepicker.css"
 const CreateTrip = (props) => {
 
     
-    const accessToken = localStorage.getItem('sessionToken')
-    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgxOTI5MSwiZXhwIjoxNjI2OTA1NjkxfQ.YzvcQntWIvK2ReoZ0a4XlGMq3UDo-o3cQjf0UB2htZ4"
+    // const accessToken = localStorage.getItem('sessionToken')
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjk1NzY3OCwiZXhwIjoxNjI3MDQ0MDc4fQ.Bl07pI7i_uqEQsZ-7uByV4mCuXXoEhtvVhSE7Y48NbA"
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
@@ -55,10 +56,13 @@ const CreateTrip = (props) => {
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
+        <div>
+        <Jumbotron className="create" fluid>
+            <Container fluid>
+                <p className="lead create">Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</p>
+            </Container>
+        </Jumbotron>
         <Container>
-            <div>
-                <h2>Name - are you ready to get out of location? Use this form to create a new trip to look foward to.</h2>
-            </div>
             <Form>
                 <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                     <DropdownToggle caret style={{ margin: "10px" }}>
@@ -113,7 +117,7 @@ const CreateTrip = (props) => {
                 {/* need to redirect to ViewTrips component */}
             </Form>
         </Container>
-
+        </div>
 
 
     )

@@ -7,11 +7,14 @@ import './App.css';
 // import { TripsLandingPage, CreateTrip, ViewTrips, EditTrip } from './components/index'
 import TripsLandingPage from './components/TripsLandingPage'
 import CreateTrip from './components/CreateTrip'
-// import EditTrip from './components/EditTrip'
 import ViewTrips from './components/ViewTrips'
-
-
-
+// import EditTrip from './components/EditTrip'
+// import ViewTrips from './components/ViewTrips'
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
+import Page from './Pages/pages';
+import Navibar from './Navigation/Navibar';
 import LandingPage from './Landing/LandingPage';
 
 function App() {
@@ -40,14 +43,19 @@ function App() {
 
   return (
     <div className="App">
-        <LandingPage />
+        <Router>
+        <Page />
+        </Router>
     {/* <Auth /> */}
 
     <Auth updateToken={updateToken}/>
 
       {/* <TripsLandingPage /> */}
-      {/* <CreateTrip /> */}
+      <CreateTrip />
       <ViewTrips />
+     
+      {/* <CreateTrip /> */}
+      {/* <ViewTrips /> */}
       {/* <EditTrips /> */}
     </div>
   );

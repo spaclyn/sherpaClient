@@ -8,8 +8,8 @@ import ReadOnlyRow from './ReadOnlyRow'
 const ViewTrips = () => {
 
     const [tripsData, setTripsData] = useState([])
-    const accessToken = localStorage.getItem('sessionToken')
-    // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjgyNzc3MywiZXhwIjoxNjI2OTE0MTczfQ.JMh7QSr8Q1AceeWeGHGAt_KQ5B2chfyqhc_sPmhNQyU"
+    // const accessToken = localStorage.getItem('sessionToken')
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjk1NzY3OCwiZXhwIjoxNjI3MDQ0MDc4fQ.Bl07pI7i_uqEQsZ-7uByV4mCuXXoEhtvVhSE7Y48NbA"
 
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
