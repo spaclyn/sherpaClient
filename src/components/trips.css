@@ -1,0 +1,27 @@
+.jumbotron.create {
+    height: 100px;
+}
+
+.jumbotron h2 {
+    width: 550px;
+    background-color: #F5F5F5;
+    align-items: center;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lead.create {
+    margin-top: 50px;
+    padding-left: 100px;
+    text-align: justify;
+    width: 500px;
+}
+
+.button1{
+    width: 600px;
+    color: black;
+    background-color: #A8D4AD;
+    border-color: #94b397b9;
+
+}

@@ -1,0 +1,51 @@
+#formWrapper:hover {
+    transform: scale(1.01);
+    transition: ease-in-out .5s;
+}
+
+#formWrapper:not(hover) {
+    transform: scale(1);
+    transition: ease-in-out 1s;
+}
+
+.auth-container {
+    width: 90%;
+}
+
+label {
+    user-select: none !important;
+    margin-right: 140px;
+}
+
+.form-control {
+    background: rgba(173, 173, 173, 0.384) !important;
+    padding: 0 !important;
+    width: 300px;
+}
+
+.is-invalid {
+    background: rgba(0, 0, 0, .1) !important;
+    padding: 0 !important;
+}
+
+#email {
+    transition: ease-in-out .5s;
+}
+
+#password {
+    transition: ease-in-out .5s;
+}
+
+#cPassword {
+    transition: ease-in-out .5s;
+}
+
+.form .Button {
+    margin-right: 5600px;
+}
+
+.jumbotron.bottom{
+    padding-top: 150px;
+    padding-bottom: 0px;
+    height: 300px;
+}
