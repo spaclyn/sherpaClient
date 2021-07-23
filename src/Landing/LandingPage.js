@@ -21,7 +21,6 @@ const LandingPage = (props) => {
       <Col xs="6"><div className="partial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at tempus erat. Proin fermentum diam a semper egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sem orci, consectetur eget consectetur id, suscipit in ligula. Integer enim odio, lobortis at tempor vitae, finibus ut felis. Curabitur sit amet sapien rhoncus, molestie est quis, laoreet nisi. Proin nec purus eu libero interdum tincidunt tempus vitae tellus. Aenean pellentesque tincidunt ante at tempor. Vestibulum tincidunt odio vitae arcu varius congue. Vivamus laoreet posuere tristique. Integer interdum, nisi quis malesuada convallis, quam felis dignissim odio, at lacinia odio diam ut velit. Integer eget velit sed nibh dignissim vehicula.</div></Col>
       </Row>
       </Container>
-
       <Jumbotron className="bottom">
         <div className="blue">
             <h1> &nbsp;change how you travel.</h1>

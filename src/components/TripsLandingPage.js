@@ -1,6 +1,7 @@
 //Page to be viewed after a user signs in
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap'
 import './trips.css';
+import React from 'react';
 
 
 
