@@ -18,31 +18,35 @@ const Signup = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(email, password, name, location)
+        console.log(email, password, name, location);
 
         fetch("http://localhost:3000/user/register", {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password, name: name, location: location}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
+                // 'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
             })
-        }).then((response) => {
-                response.json()
-                console.log(response)
-            }
-        ).then((data) => {
-            props.updateToken(data.sessionToken)
+        })
+
+        await ((response) => {
+            response.json()
+            // console.log(response.json())
+        }) 
+        await ((data) => {
+            // props.updateToken(data.sessionToken)
             console.log(data)
-        }).catch(err => console.log(err))
+        }); 
+        await (err => console.log(err))
     }
+
 
     return(
         <div>
             <h1>Sign Up</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="name">First Name</Label>
+                    <Label htmlFor="name">Full Name</Label>
                     <Input onChange={(e) => setName(e.target.value)} name="name" value={name} />       
                 </FormGroup>
                 <FormGroup>

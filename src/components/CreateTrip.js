@@ -1,3 +1,4 @@
+import React from 'react'
 import { Container, Row, Col, Form, Button, Label, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 import { Jumbotron } from 'reactstrap';
 import './trips.css';
