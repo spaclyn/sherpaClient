@@ -15,11 +15,9 @@ import ViewTrips from './components/ViewTrips'
 // import EditTrip from './components/EditTrip'
 // import ViewTrips from './components/ViewTrips'
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router, useHistory
 } from 'react-router-dom'
 import Page from './Pages/pages';
-import Navibar from './Navigation/Navibar';
-import LandingPage from './Landing/LandingPage';
 
 function App() {
   return (
@@ -27,24 +25,14 @@ function App() {
       <Router>
         <Page />
       </Router>
-      {/* <Auth /> */}
+      
 
       {/* const clearToken = () => {
     localStorage.clear()
     setSessionToken('')
  } */}
 
-      {/* <TripsLandingPage /> */}
-      {/* <CreateTrip /> */}
-      {/* <ViewTrips /> */}
-      {/* <EditTrips /> */}
-
-      {/* <CreateTrip /> */}
-      {/* <ViewTrips /> */}
-
-      {/* <CreateTrip /> */}
-      {/* <ViewTrips /> */}
-      {/* <EditTrips /> */}
+      
     </div>
   );
 }

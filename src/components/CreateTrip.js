@@ -4,16 +4,18 @@ import './trips.css';
 
 import { useState } from 'react'
 
-// Dropdown Calendar
-import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css"
+import { useHistory } from 'react-router-dom'
 
 
 const CreateTrip = (props) => {
 
+    const history = useHistory()
     
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjk1NzY3OCwiZXhwIjoxNjI3MDQ0MDc4fQ.Bl07pI7i_uqEQsZ-7uByV4mCuXXoEhtvVhSE7Y48NbA"
+    const navTrips = ()=> {
+        history.push("/mytrips")
+    }
+    
+    const accessToken = localStorage.getItem('sessionToken')
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
@@ -113,8 +115,8 @@ const CreateTrip = (props) => {
                         </Label>
                     </Col>
                 </Row>
-                <Button style={{ margin: "10px" }} type="submit" onClick={handleSubmit} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
-                {/* need to redirect to ViewTrips component */}
+                <Button style={{ margin: "10px" }} type="submit" onClick={handleSubmit, navTrips} id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                
             </Form>
         </Container>
         </div>

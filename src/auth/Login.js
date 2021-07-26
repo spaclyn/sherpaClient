@@ -1,9 +1,15 @@
 import React, {useState} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import {useHistory} from 'react-router-dom'
 
 const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const history = useHistory()
+    const navTrips = ()=> {
+        history.push("/mytrips")
+    }
 
         const handleSubmit = (event) => {
         event.preventDefault()
@@ -34,7 +40,7 @@ const Login = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>       
                 </FormGroup>
                 <br />
-                <Button type="submit" className="submit">Login</Button>
+                <Button type="submit" className="submit" onClick={navTrips}>Login</Button>
             </Form>
         </div>
     )

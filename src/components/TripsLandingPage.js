@@ -2,10 +2,19 @@
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap'
 import './trips.css';
 
+import { useHistory } from 'react-router-dom'
+
 
 
 const TripsLandingPage = () => {
 
+    const history = useHistory()
+    const navCreate = ()=> {
+        history.push("/create")
+    }
+    const navTrips = ()=> {
+        history.push("/mytrips")
+    }
 
     return (
         <div>
@@ -14,10 +23,10 @@ const TripsLandingPage = () => {
             <h1>Select your destination:</h1>
             <Row>
                 <center>
-                    <Button className="button1" /* onclick redirect to Create a Trip */ style={{ margin: "10px" }}>
+                    <Button className="button1" style={{ margin: "10px" }} onClick={navCreate}>
                         Create a Trip
                     </Button>
-                    <Button className="button1" /* onclick redirect to View Trips */ style={{ margin: "10px" }}>
+                    <Button className="button1" style={{ margin: "10px" }} onClick={navTrips}>
                         View Trips
                     </Button>
                 </center>

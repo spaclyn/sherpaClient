@@ -3,13 +3,19 @@ import { Button, Table } from 'reactstrap'
 import EditTrip from "./EditTrip"
 import CreateTrip from './CreateTrip'
 import ReadOnlyRow from './ReadOnlyRow'
+import { useHistory } from 'react-router-dom'
 
 
 const ViewTrips = () => {
 
+    const history = useHistory()
+    const navCreate = ()=> {
+        history.push("/create")
+    }
+    
+
     const [tripsData, setTripsData] = useState([])
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjk1NzY3OCwiZXhwIjoxNjI3MDQ0MDc4fQ.Bl07pI7i_uqEQsZ-7uByV4mCuXXoEhtvVhSE7Y48NbA"
+    const accessToken = localStorage.getItem('sessionToken')
 
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
@@ -114,7 +120,6 @@ const ViewTrips = () => {
 
     //Deletes a trip from the table
     const handleDeleteClick = (tripId) => {
-        // console.log(tripId);
         fetch(`http://localhost:3000/trip/delete/${tripId}`, {
             method: "DELETE",
             headers: new Headers({
@@ -166,7 +171,7 @@ const ViewTrips = () => {
                 </Table>
             </form>
             <div>
-                <Button onClick={CreateTrip} color="secondary">Create a New Trip</Button>
+                <Button onClick={navCreate} color="secondary">Create a New Trip</Button>
             </div>
         </div >
     )

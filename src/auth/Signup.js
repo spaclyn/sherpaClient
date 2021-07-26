@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import './Auth.css'
+import {useHistory} from 'react-router-dom'
 
 
 const Signup = (props) => {
@@ -8,6 +9,12 @@ const Signup = (props) => {
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
+
+    const history = useHistory()
+    const navCreate = ()=> {
+        history.push("/create")
+    }
+    
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -51,7 +58,7 @@ const Signup = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />       
                 </FormGroup>
                 <br />
-                <Button type="submit">Sign Up</Button>
+                <Button type="submit" onClick={navCreate}>Sign Up</Button>
             </Form>
         </div>
     )
