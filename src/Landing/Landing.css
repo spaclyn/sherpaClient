@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,600&family=Lato&display=swap');
+
+body {
+    background-color: #F5F5F5;
+}
+
+.jumbotron {
+    background-color: transparent;
+    background-image: url('./assets/mountain0.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50%;
+    height: 800px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.jumbotron h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 200px;
+    color: white;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 100px;
+    color: black;
+}
+
+h1.display-2{
+    font-size: 40px;
+}
+
+.lead {
+    color:white;
+    margin-top: -220px;
+    margin-left: 100px;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.smart {
+    padding-top: 250px ;
+    margin-right: 100px;
+    text-align: justify;
+}
+
+.smart h1 {
+    color: #364063;
+
+}
+
+.partial{
+    padding-top: 200px;
+    padding-left: 50px;
+    text-align: justify;
+}
+
+.jumbotron.bottom{
+    padding-top: 150px;
+    padding-bottom: 0px;
+    height: 300px;
+}
+
+.blue h1{
+    font-size: 40px;
+}
+
+button.blue {
+    padding: 10px 20px 10px 20px;
+    text-transform: uppercase;
+    background-color: #364063;
+    color: white;
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+    border: 1px rgba(0, 0, 0, 0.171) solid;
+    cursor: pointer;
+}
+
+.blurb {
+    height: 650px;
+}
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(190, 190, 190); 
+  }
