@@ -38,7 +38,7 @@ const Login = (props) => {
                     <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password" >Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>       
                 </FormGroup>
                 <br />
