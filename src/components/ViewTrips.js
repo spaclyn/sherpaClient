@@ -15,10 +15,9 @@ const ViewTrips = (props) => {
     
 
     const [tripsData, setTripsData] = useState([])
-    // const props.token = localStorage.getItem('sessionToken')
 
     useEffect(() => {
-        fetch('http://localhost:3000/trip/mytrips', {
+        fetch('https://nar-sherpa.herokuapp.com/trip/mytrips', {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -61,7 +60,7 @@ const ViewTrips = (props) => {
     const handleEditFormSubmit = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:3000/trip/update/${editTripId}`, {
+        fetch(`https://nar-sherpa.herokuapp.com/trip/update/${editTripId}`, {
             method: "PUT",
             body: JSON.stringify(editTripData),
             headers: new Headers({
@@ -120,7 +119,7 @@ const ViewTrips = (props) => {
 
     //Deletes a trip from the table
     const handleDeleteClick = (tripId) => {
-        fetch(`http://localhost:3000/trip/delete/${tripId}`, {
+        fetch(`https://nar-sherpa.herokuapp.com/trip/delete/${tripId}`, {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",

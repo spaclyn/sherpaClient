@@ -16,7 +16,6 @@ const CreateTrip = (props) => {
         history.push("/mytrips")
     }
 
-    // const accessToken = localStorage.getItem('sessionToken')
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
@@ -41,7 +40,7 @@ const CreateTrip = (props) => {
     const handleSubmit = (event) => {
         console.log('handleSubmit working?')
         event.preventDefault()
-        fetch(`http://localhost:3000/trip/create`, {
+        fetch(`https://nar-sherpa.herokuapp.com/trip/create`, {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json",
