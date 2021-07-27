@@ -23,7 +23,9 @@ const Login = (props) => {
         }).then(
             (response) => response.json()
         ).then((data) => {
+            console.log(data)
             props.updateToken(data.sessionToken)
+            navTrips()
         }).catch(err => console.log(err))
     }
 
@@ -40,7 +42,8 @@ const Login = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>       
                 </FormGroup>
                 <br />
-                <Button type="submit" className="submit" onClick={navTrips}>Login</Button>
+                {/* <Button type="submit" className="submit" onClick={navTrips}>Login</Button> */}
+                <Button type="submit" className="submit">Login</Button>
             </Form>
         </div>
     )

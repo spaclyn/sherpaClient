@@ -13,7 +13,7 @@ const Page = (props) => {
   
   return (
     <div className="page">
-        <Navibar/>
+        <Navibar token={props.token} updateToken={props.updateToken}/>
     </div>
   );
 };
