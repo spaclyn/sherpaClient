@@ -49,7 +49,7 @@ const Navibar = (props) => {
             <Route exact path='/login'><Auth token={props.token} updateToken={props.updateToken}/></Route>
             <Route exact path='/home'><TripsLandingPage /></Route>
             <Route exact path='/create'><CreateTrip token={props.token} updateToken={props.updateToken} /></Route>
-            <Route exact path='/mytrips'><ViewTrips /></Route>
+            <Route exact path='/mytrips'><ViewTrips token={props.token} updateToken={props.updateToken} /></Route>
           </Switch>
         </div>
       </div>
