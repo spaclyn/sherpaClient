@@ -16,7 +16,7 @@ const Signup = (props) => {
     }
     
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         console.log(email, password, name, location);
 
@@ -28,16 +28,13 @@ const Signup = (props) => {
                 // 'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
             })
         })
-
-        await ((response) => {
-            response.json()
-            // console.log(response.json())
-        }) 
-        await ((data) => {
-            // props.updateToken(data.sessionToken)
-            console.log(data)
-        }); 
-        await (err => console.log(err))
+            .then(res =>  res.json())
+            .then((data) => {
+                console.log(data)
+                props.updateToken(data.sessionToken)
+                navCreate()
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -62,7 +59,8 @@ const Signup = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />       
                 </FormGroup>
                 <br />
-                <Button type="submit" onClick={navCreate}>Sign Up</Button>
+                {/* <Button type="submit" onClick={navCreate}>Sign Up</Button> */}
+                <Button type="submit">Sign Up</Button>
             </Form>
         </div>
     )
