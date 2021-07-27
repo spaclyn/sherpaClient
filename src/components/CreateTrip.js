@@ -64,7 +64,7 @@ const CreateTrip = (props) => {
         <div>
             <Jumbotron className="create" fluid>
                 <Container fluid>
-
+                 <h1>Create A Trip</h1>
                 </Container>
             </Jumbotron>
             <Container>

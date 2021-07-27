@@ -19,7 +19,7 @@ const TripsLandingPage = () => {
 
     return (
         <div>
-            <Jumbotron fluid>
+            <Jumbotron className="create" fluid>
             </Jumbotron>
             <h1>Select your destination:</h1>
             <Row>

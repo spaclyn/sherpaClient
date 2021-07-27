@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Button, Table } from 'reactstrap'
+import { Button, Table, Container, Row, Col, Jumbotron } from 'reactstrap'
 import EditTrip from "./EditTrip"
 import CreateTrip from './CreateTrip'
 import ReadOnlyRow from './ReadOnlyRow'
 import { useHistory } from 'react-router-dom'
+import './trips.css';
 
 
 const ViewTrips = (props) => {
@@ -143,8 +144,15 @@ const ViewTrips = (props) => {
 
     return (
         <div>
+         <Jumbotron className="view" fluid>
+                <Container fluid>
+                <h1>My Trips</h1>
+                </Container>
+         </Jumbotron>
+         <Row>
+            <Col>
             <form onSubmit={handleEditFormSubmit}>
-                <Table>
+                <Table hover striped>
                     <thead>
                         <tr scope="row">
                             <th style={{ flex: 1 }}>Type</th>
@@ -171,6 +179,8 @@ const ViewTrips = (props) => {
             <div>
                 <Button onClick={navCreate} color="secondary">Create a New Trip</Button>
             </div>
+            </Col>
+            </Row>
         </div >
     )
 

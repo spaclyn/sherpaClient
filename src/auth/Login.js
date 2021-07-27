@@ -32,19 +32,21 @@ const Login = (props) => {
     return(
         <div>
             <h1>Login</h1>
-            <Form onSubmit={handleSubmit}>
+            <center>
+                <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
                     <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password" >Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>       
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} type="password"/>       
                 </FormGroup>
                 <br />
                 {/* <Button type="submit" className="submit" onClick={navTrips}>Login</Button> */}
                 <Button type="submit" className="submit">Login</Button>
             </Form>
+            </center>
         </div>
     )
 }

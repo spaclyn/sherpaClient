@@ -2,6 +2,18 @@
     height: 100px;
 }
 
+.jumbotron.create h1 {
+    font-size: 70px;
+}
+
+.jumbotron.view h1 {
+    font-size: 70px;
+}
+
+.jumbotron.view {
+    height: 100px;
+}
+
 .jumbotron h2 {
     width: 550px;
     background-color: #F5F5F5;
@@ -11,11 +23,11 @@
     padding-right: 20px;
 }
 
-.lead.create {
-    margin-top: 50px;
-    padding-left: 100px;
-    text-align: justify;
-    width: 500px;
+h1.intro {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    color: white;
 }
 
 .button1{
@@ -24,4 +36,14 @@
     background-color: #A8D4AD;
     border-color: #94b397b9;
 
+}
+
+.table {
+    background-color: rgba(255, 255, 255, 0.884);
+    --bs-table-striped-color: #39393A;
+    --bs-table-striped-bg: rgb(168 212 173 / 26%);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgb(208 208 208 / 39%);
+    --bs-table-hover-color: #000000;
+    --bs-table-hover-bg: rgb(155 155 147 / 50%);
 }
