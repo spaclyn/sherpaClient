@@ -34,7 +34,7 @@ const Navibar = (props) => {
               <NavLink><Link to='/home'>HOME</Link></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink><Link to='/trips'>VIEW</Link></NavLink>
+              <NavLink><Link to='/mytrips'>VIEW</Link></NavLink>
             </NavItem>
             <NavItem>
               <NavLink><Link to='/create'>CREATE</Link></NavLink>
