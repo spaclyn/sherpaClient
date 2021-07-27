@@ -27,14 +27,14 @@ const Signup = (props) => {
                 'Content-Type': 'application/json',
                 // 'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
             })
-        }).then((response) => {
-            response.json()
-            // console.log(response.json())
-        }).then((data) => {
-            props.updateToken(data.sessionToken)
-            console.log(data)
-            navCreate()
-        }).catch(err => console.log(err))
+        })
+            .then(res =>  res.json())
+            .then((data) => {
+                console.log(data)
+                props.updateToken(data.sessionToken)
+                navCreate()
+            })
+            .catch(err => console.log(err))
     }
 
 
