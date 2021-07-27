@@ -16,7 +16,7 @@ const CreateTrip = (props) => {
         history.push("/mytrips")
     }
 
-    const accessToken = localStorage.getItem('sessionToken')
+    // const accessToken = localStorage.getItem('sessionToken')
     const [type, setType] = useState("")
     const [country, setCountry] = useState("USA")
     const [state, setState] = useState("")
@@ -38,18 +38,21 @@ const CreateTrip = (props) => {
         }
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        console.log('handleSubmit working?')
+        event.preventDefault()
         fetch(`http://localhost:3000/trip/create`, {
             method: "POST",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             }),
             body: JSON.stringify(newTrip)
         })
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                navTrips()
             })
             .catch(err => {
                 console.error(err)
@@ -66,7 +69,8 @@ const CreateTrip = (props) => {
                 </Container>
             </Jumbotron>
             <Container>
-                <Form>
+                {/* <Form> */}
+                <Form onSubmit={handleSubmit}>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                         <DropdownToggle caret style={{ margin: "10px" }}>
                             Type of Trip: {type}
@@ -116,7 +120,9 @@ const CreateTrip = (props) => {
                             </Label>
                         </Col>
                     </Row>
-                    <Button style={{ margin: "10px" }} type="submit" onClick={ handleSubmit, navTrips } id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+                    <Button style={{ margin: "10px" }} type="submit" id="tripBtn" className="btn btn-dark getControls">Create Trip</Button>
+
+                    {/* onClick={nav} */}
 
                 </Form>
             </Container>

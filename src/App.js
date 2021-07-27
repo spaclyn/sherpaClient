@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Page />
+        <Page token={sessionToken} updateToken={updateToken}/>
       </Router>
       
 
