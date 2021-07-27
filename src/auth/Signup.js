@@ -16,7 +16,7 @@ const Signup = (props) => {
     }
     
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         console.log(email, password, name, location);
 

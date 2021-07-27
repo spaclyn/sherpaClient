@@ -144,7 +144,6 @@ const ViewTrips = () => {
 
     return (
         <div>
-            <h2>Whoa! Check out all of the awesome trips you have, name! Have you even spent time in Location?</h2>
             <form onSubmit={handleEditFormSubmit}>
                 <Table>
                     <thead>
