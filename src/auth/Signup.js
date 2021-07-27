@@ -20,7 +20,7 @@ const Signup = (props) => {
         event.preventDefault()
         console.log(email, password, name, location);
 
-        fetch("http://localhost:3000/user/register", {
+        fetch("https://nar-sherpaclient.herokuapp.com/user/register", {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password, name: name, location: location}}),
             headers: new Headers({
