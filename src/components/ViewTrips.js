@@ -1,27 +1,33 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Button, Table } from 'reactstrap'
+import { Button, Table, Container, Row, Col, Jumbotron } from 'reactstrap'
 import EditTrip from "./EditTrip"
 import CreateTrip from './CreateTrip'
 import ReadOnlyRow from './ReadOnlyRow'
+import { useHistory } from 'react-router-dom'
+import './trips.css';
 
 
-const ViewTrips = () => {
+const ViewTrips = (props) => {
+
+    const history = useHistory()
+    const navCreate = ()=> {
+        history.push("/create")
+    }
+    
 
     const [tripsData, setTripsData] = useState([])
-    // const accessToken = localStorage.getItem('sessionToken')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYyNjk1NzY3OCwiZXhwIjoxNjI3MDQ0MDc4fQ.Bl07pI7i_uqEQsZ-7uByV4mCuXXoEhtvVhSE7Y48NbA"
 
     useEffect(() => {
-        fetch('http://localhost:3000/trip/mytrips', {
+        fetch('https://nar-sherpa.herokuapp.com/trip/mytrips', {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             })
         })
             .then(res => res.json())
             .then(json => setTripsData(json))
-    }, [accessToken])
+    }, [props.token])
 
 
 
@@ -55,12 +61,12 @@ const ViewTrips = () => {
     const handleEditFormSubmit = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:3000/trip/update/${editTripId}`, {
+        fetch(`https://nar-sherpa.herokuapp.com/trip/update/${editTripId}`, {
             method: "PUT",
             body: JSON.stringify(editTripData),
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             }),
         })
         .then(response => response.json())
@@ -114,12 +120,11 @@ const ViewTrips = () => {
 
     //Deletes a trip from the table
     const handleDeleteClick = (tripId) => {
-        // console.log(tripId);
-        fetch(`http://localhost:3000/trip/delete/${tripId}`, {
+        fetch(`https://nar-sherpa.herokuapp.com/trip/delete/${tripId}`, {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             })
         })
         .then(response => response.json())
@@ -139,9 +144,15 @@ const ViewTrips = () => {
 
     return (
         <div>
-            <h2>Whoa! Check out all of the awesome trips you have, name! Have you even spent time in Location?</h2>
+         <Jumbotron className="view" fluid>
+                <Container fluid>
+                <h1>My Trips</h1>
+                </Container>
+         </Jumbotron>
+         <Row>
+            <Col>
             <form onSubmit={handleEditFormSubmit}>
-                <Table>
+                <Table hover striped>
                     <thead>
                         <tr scope="row">
                             <th style={{ flex: 1 }}>Type</th>
@@ -166,8 +177,10 @@ const ViewTrips = () => {
                 </Table>
             </form>
             <div>
-                <Button onClick={CreateTrip} color="secondary">Create a New Trip</Button>
+                <Button onClick={navCreate} color="secondary">Create a New Trip</Button>
             </div>
+            </Col>
+            </Row>
         </div >
     )
 

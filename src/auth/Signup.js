@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import './Auth.css'
+import {useHistory} from 'react-router-dom'
 
 
 const Signup = (props) => {
@@ -9,33 +10,40 @@ const Signup = (props) => {
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
 
+    const history = useHistory()
+    const navCreate = ()=> {
+        history.push("/create")
+    }
+    
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(email, password, name, location)
+        console.log(email, password, name, location);
 
-        fetch("http://localhost:3000/user/register", {
+        fetch("https://nar-sherpa.herokuapp.com/user/register", {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password, name: name, location: location}}),
             headers: new Headers({
-                'Content-Type': 'application/json',
-                'access-control-allow-headers': 'Origin, X-Requested-With, Content-TypeError, Accept, Authorization'
+                'Content-Type': 'application/json'
             })
-        }).then((response) => {
-                response.json()
-                console.log(response)
-            }
-        ).then((data) => {
-            props.updateToken(data.sessionToken)
-            console.log(data)
-        }).catch(err => console.log(err))
+        })
+            .then(res =>  res.json())
+            .then((data) => {
+                console.log(data)
+                props.updateToken(data.sessionToken)
+                navCreate()
+            })
+            .catch(err => console.log(err))
     }
+
 
     return(
         <div>
             <h1>Sign Up</h1>
+            <center>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="name">First Name</Label>
+                    <Label htmlFor="name">Full Name</Label>
                     <Input onChange={(e) => setName(e.target.value)} name="name" value={name} />       
                 </FormGroup>
                 <FormGroup>
@@ -48,11 +56,12 @@ const Signup = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />       
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} type="password" />       
                 </FormGroup>
                 <br />
                 <Button type="submit">Sign Up</Button>
             </Form>
+            </center>
         </div>
     )
 }

@@ -8,13 +8,17 @@
     transition: ease-in-out 1s;
 }
 
+
+
 .auth-container {
+    padding-left: 10px;
     width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 label {
     user-select: none !important;
-    margin-right: 140px;
 }
 
 .form-control {
@@ -49,3 +53,4 @@ label {
     padding-bottom: 0px;
     height: 300px;
 }
+

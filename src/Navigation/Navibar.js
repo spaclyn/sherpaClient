@@ -34,7 +34,7 @@ const Navibar = (props) => {
               <NavLink><Link to='/home'>HOME</Link></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink><Link to='/trips'>VIEW</Link></NavLink>
+              <NavLink><Link to='/mytrips'>VIEW</Link></NavLink>
             </NavItem>
             <NavItem>
               <NavLink><Link to='/create'>CREATE</Link></NavLink>
@@ -46,10 +46,10 @@ const Navibar = (props) => {
         <div className="comp">
           <Switch>
             <Route exact path='/'><LandingPage /></Route>
-            <Route exact path='/login'><Auth /></Route>
+            <Route exact path='/login'><Auth token={props.token} updateToken={props.updateToken}/></Route>
             <Route exact path='/home'><TripsLandingPage /></Route>
-            <Route exact path='/create'><CreateTrip /></Route>
-            <Route exact path='/view'><ViewTrips /></Route>
+            <Route exact path='/create'><CreateTrip token={props.token} updateToken={props.updateToken} /></Route>
+            <Route exact path='/mytrips'><ViewTrips token={props.token} updateToken={props.updateToken} /></Route>
           </Switch>
         </div>
       </div>
