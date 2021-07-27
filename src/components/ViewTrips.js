@@ -6,7 +6,7 @@ import ReadOnlyRow from './ReadOnlyRow'
 import { useHistory } from 'react-router-dom'
 
 
-const ViewTrips = () => {
+const ViewTrips = (props) => {
 
     const history = useHistory()
     const navCreate = ()=> {
@@ -15,19 +15,19 @@ const ViewTrips = () => {
     
 
     const [tripsData, setTripsData] = useState([])
-    const accessToken = localStorage.getItem('sessionToken')
+    // const props.token = localStorage.getItem('sessionToken')
 
     useEffect(() => {
         fetch('http://localhost:3000/trip/mytrips', {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             })
         })
             .then(res => res.json())
             .then(json => setTripsData(json))
-    }, [accessToken])
+    }, [props.token])
 
 
 
@@ -66,7 +66,7 @@ const ViewTrips = () => {
             body: JSON.stringify(editTripData),
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             }),
         })
         .then(response => response.json())
@@ -124,7 +124,7 @@ const ViewTrips = () => {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${props.token}`
             })
         })
         .then(response => response.json())
